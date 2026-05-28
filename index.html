@@ -2,24 +2,32 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <!-- スマホでの画面崩れを絶対に防ぐ設定 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Discord Bots</title>
     
-    <!-- 🟢 スマホでも確実にDiscord公式フォントを表示するための設定（軽量なWOFF2形式） -->
+    <!-- 🟢 Discord公式フォント（gg sans）を読み込む設定を戻しました -->
     <link href="https://cdnfonts.com" rel="stylesheet">
 
     <style>
         body { 
-            /* 🟢 スマホ（iOS/Android）の内蔵システムフォントもDiscord公式の優先順位と完全に一致させました */
-            font-family: 'gg sans', 'Segoe UI', Tahoma, Geneva, Verdana, -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 'メイリオ', sans-serif;
+            /* 🟢 英字はgg sans、日本語はDiscord公式と同じ優先順位のゴシック体です */
+            font-family: 'gg sans', 'Segoe UI', Tahoma, Geneva, Verdana, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 'メイリオ', sans-serif;
             background: #313338; 
             color: #dbdee1;     
             margin: 0; 
             padding: 40px 20px; 
-            -webkit-font-smoothing: antialiased; /* 文字の輪郭をスマホでもクッキリさせる設定 */
+            -webkit-font-smoothing: antialiased;
         }
         .container { max-width: 800px; margin: 0 auto; }
-        h1 { text-align: center; color: #f2f3f5; font-size: 2.5rem; font-weight: 800; margin-bottom: 5px; }
+        
+        h1 { 
+            text-align: center; 
+            color: #f2f3f5; 
+            font-size: 2.5rem; 
+            font-weight: 800;
+            margin-bottom: 5px; 
+        }
         .subtitle { text-align: center; color: #949ba4; margin-bottom: 40px; font-size: 1rem; }
         .bot-list { display: flex; flex-direction: column; gap: 20px; }
         
@@ -45,12 +53,23 @@
         .bot-desc { color: #b5bac1; font-size: 0.95rem; line-height: 1.6; }
         .bot-desc p { margin: 0; }
         
-        /* 🟢 スマホで画面が狭くなっても、フォントサイズやボタンが絶対に崩れないレスポンシブ設定 */
+        /* スマホ（画面幅768px以下）用の調整 */
         @media (max-width: 768px) {
             body { padding: 20px 15px; }
             h1 { font-size: 2rem; }
-            .bot-card { flex-direction: column; align-items: flex-start; gap: 20px; padding: 20px; }
-            .bot-link { width: 100%; box-sizing: border-box; }
+            .subtitle { margin-bottom: 25px; font-size: 0.9rem; }
+            .bot-card { 
+                flex-direction: column; 
+                align-items: flex-start; 
+                gap: 15px; 
+                padding: 20px; 
+            }
+            .bot-info { width: 100%; }
+            .bot-link { 
+                width: 100%; 
+                box-sizing: border-box; 
+                padding: 14px; 
+            }
         }
         
         .bot-link { 
